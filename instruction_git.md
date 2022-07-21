@@ -1,121 +1,165 @@
-# **Инструкция по работе с системой контроля версий Git**
+# **Instructions for working with the version control system**
 
-![Эмблема Git](git.jpg)
+__GIT__ *is software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development.*
 
-Git (произносится «гит») — распределённая система управления версиями. Проект был создан Линусом Торвальдсом для управления разработкой ядра Linux, первая версия выпущена 7 апреля 2005 года. На сегодняшний день его поддерживает Джунио Хамано.
+![logo](git_logo.png)
 
-## Инициализация репозитория
+## Repository initialization
 
-Чтобы создать (инициализировать) новый репозиторий нужно в терминале ввести команду:
+    git init 
 
-    git init
+*in order to do the magic of the git in the folder.*
+  
+    git add  < file name.file extension > 
 
-Репозиторий будет создан в той папке, из которой вызывалась команда
+*to track the desired file and do it after changes have been made.*
 
-## Проверка состояния репозитория
+## Checking the status of a repository
 
-Чтобы проверить текущее состояние репозитория нужно ввести в терминале команду:
+    git status 
 
-    git status
+*to check file status.*
 
-## Добавление изменения к отслеживанию версионности
+    git status -s 
+    
+*short status.*
 
-Чтобы добавить сделанное изменение к отслеживанию (поместить в индекс) нужно ввести команду:
+## Adding versioning
 
-    git add <имя файла>
+ *to add new versions: make changes; save file; do:* 
 
-где вместо <имя файла> вводится путь к файлу относительно расположения репозитория.
+     git add  <file name.file extension> ---> 
+     git commit -m "text"
 
-## Фиксация изменений
+*or*
 
-Чтобы зафиксировать изменение используется команда:
+    git commit -a -m "text"
 
-    git commit
+## Committing the change
 
-В таком случае откроется окно для ввоба краткого описания сделанных изменений.
+     git commit -m "text" 
 
-Чтобы сделать это одновременно с фиксацией используется команда:
+*to describe the changes.*
 
-    git commit -m "комментарий"
+## View commit history
 
-## Просмотр истории изменений
+    git log : 
 
-Чтобы посмотреть историю изменений используется комада
+*to see the history of changes.*
 
-    git log
+    git log --oneline  
 
-Для просмотра изменений с выводом одного коммита в одну строку используется команда
+*short version.*
 
-    git log --oneline
+    git log --stat 
 
-Для просмотра всех имеющихся коммитов используется команда
+*more detail.*
 
-    git log --all
+    git log --graph 
 
-Для просмотра лога с графическим изображением веток используется команда
+*see the progress of the branches*
 
-    git log --graph
+   
+    git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 
-Все указанные флаги могут использоваться вместе:
+*full compack understandable list of changes*
 
-    git log --all --oneline --graph
+## Switching between versions
 
-## Просмотр различий между изменениями
+    git checkout <the first four simbols of log> 
 
-Для просмотра отличий между текущим состоянием репозитория и последним сохраненным изменением используется команда
+*look at the status in the version < log >.*
+
+    git checkout master 
+
+*back in the main status.*
 
     git diff
 
-Можно также посмотреть разницу между любыми двуми коммитами. Для этого используется команда
+*to see the difference between the current version and the latest commited version*
 
-    git diff <хэш1> <хэш2>
+    git diff <log_a> <log_b>
 
-## Переключение на нужное изменение
+*to compare versions differences
 
-Чтобы переключиться на нужный коммит используется команда
+## Branching in GIT
 
-    git checkout <хэш>
+*Allows you to develop different versions of the source in parallel with the possibility of merging them*
 
-## Ветки в Git
+    git branch < name >
 
-### Создание новой ветки
-
-Чтобы создать новую ветку используется команда
-
-    git branch <имя_ветки>
-
-### Просмотр всех веток
-
-Чтобы посмотреть какие ветки существуют и на какой мы находимся используется команда
+*to add new branch*
 
     git branch
 
-### Переключение между ветками
+*to check which branch you are on*
 
-Чтобы переключиться на другую ветку используется команда
+    git checkout < branch name >
 
-    git checkout <имя_ветки>
+*to switch on branch*
 
-### Слияние веток
+    git checkout master
 
-Чтобы влить одну ветку в другую необходимо находясь в целевой ветке (КУДА будем делать слияние) выполнить команду
+*return to the main branch*
 
-    git merge <имя_вливаемой_ветки>
+    git branch -d < branch name >
 
-### Конфликты при слиянии
+*to delete unnecessary branch*
 
-Если одна и та же строка в разный версиях записана по разному возникнет конфликт.
-Чистый гит автоматически сохраняет оба изменения, далее требуется вручную внести нужные правки и сделать коммит.
+    git branch -D < branch name >
 
-VSСode дает возможность выбрать какое изменение сохранить (входящее, существующее или оба).
+*force deletion of a branch from which changes have not been merged*
 
-### Удаление ветки
+## Merging in GIT
 
-Чтобы удалить ветку, которая больше не нужно (например после слияния) используется команда
+    git merge < branch name >
 
-    git branch -d <имя_ветки>
+*to merge the shown branch with the current one*
 
-## Удаленные репозитории
+## Working with remote repositories
 
-Удаленный репозиторий это облачное хранилище ваших файлов. Позволяет работать с проектом из любой точки мира, где есть Интернет.
+__*remote repository is the cloud storage of your files. allows you to work with projects from anywhere in the world where there is Internet*__
 
+    git remote add origin <link> ---->
+    git branch -M <name of main branch(mostly "master")> ---->
+    git push -u origin <name of main branch(mostly "master")
+
+*to make friends with the local and remote repository*
+    git pull
+
+*to drag the changes from the remote repository and merge them with your version on the PC*
+
+    git push
+
+*to send the changes from the your PC and merge them with remote repository virsion*
+
+# Fork
+
+__*for selecting a clone operation performed on someone else's server copy of the project repository and then creating a clone or copy of it.*__
+
+    git clone <link>
+
+*for selecting an existing repository and then creating a clone or copy of it.*
+
+--->
+
+    cd <folder>
+
+--->
+
+    git  push --set-upstream origin <branch name>
+
+*to puch changes to your branch*
+
+## Оther useful commands
+
+    clear 
+
+*to clear the terminal.*
+
+    mv test_main_file.c test_main.c ---> 
+    git add <new file name> ---> 
+    git commit -m "rename file" ---> 
+    git rm <old name>
+
+*to rename file*
