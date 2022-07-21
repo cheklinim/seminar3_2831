@@ -137,6 +137,10 @@ __*remote repository is the cloud storage of your files. allows you to work with
 
 __*for selecting a clone operation performed on someone else's server copy of the project repository and then creating a clone or copy of it.*__
 
+*on gitub.com or or other suitable site click "Fork" on the repository you are interested in*
+
+---> on markdown
+
     git clone <link>
 
 *for selecting an existing repository and then creating a clone or copy of it.*
@@ -154,6 +158,10 @@ __*for selecting a clone operation performed on someone else's server copy of th
     git  push --set-upstream origin <branch name>
 
 *to puch changes to your branch*
+
+# Pull request
+
+*on github in the tab with the gentle repository after the changes have been made, click on the compare & pull request to send the proposed changes to the owner of the repository*
 
 ## Оther useful commands
 
