@@ -80,7 +80,7 @@ __GIT__ *is software for tracking changes in any set of files, usually used for 
 
     git diff <log_a> <log_b>
 
-*to compare versions differences
+*to compare versions differences*
 
 ## Branching in GIT
 
@@ -145,7 +145,11 @@ __*for selecting a clone operation performed on someone else's server copy of th
 
     cd <folder>
 
---->
+---
+    
+    git push
+
+*to puch changes to main branch*
 
     git  push --set-upstream origin <branch name>
 
@@ -163,3 +167,59 @@ __*for selecting a clone operation performed on someone else's server copy of th
     git rm <old name>
 
 *to rename file*
+
+------------------------
+
+# Instructions for working with Markdown
+
+## Text formatting
+
+to italicize text, it must be framed in (*) or (_).
+ for example: *like this* or _like this_
+
+to semi-bold text, it must be framed in (**) or (__).
+ for example: **like this**, or __like this__
+
+alternative methods are needed in order to combine them.
+ for example : _**like this**_
+
+## Lists 
+ 
+ to add unnumbered  lists, items need to be highlighted (*) or (+). 
+ for example:
+ * el_1
+ * el_2
+ * el_3
+ + el_4
+
+ to add numbered  lists, items need to be numbered . 
+ for example:
+ 1. el_1
+ 2. el_2
+ 3. el_3
+
+## Work with images
+
+ to insert an image write this:
+ ![text](image.format) 
+ 
+ --->
+
+ commite changeds
+
+ --->
+
+ create new file with name: .gitignore
+
+ --->
+
+ add image.format in .gitignore
+
+ --->
+
+add and commit .gitignore
+
+## Links
+
+[Link text Here](https://gb.ru/)
+
